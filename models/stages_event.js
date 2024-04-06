@@ -1,7 +1,7 @@
 "use strict";
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
-  class Stages_event extends Model {
+  class Stage_event extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Stages_event.init(
+  Stage_event.init(
     {
       stage_event_id: {
         type: DataTypes.INTEGER,
@@ -29,10 +29,10 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Stages_event",
+      modelName: "Stage_event",
       tableName: "stages_events",
       timestamps: false,
     }
   );
-  return Stages_event;
+  return Stage_event;
 };
