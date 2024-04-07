@@ -25,7 +25,9 @@ bands.get("/:name", async (req, res) => {
           include: {
             model: Event,
             as: "events",
-            where: { name: { [Op.like]: `%${req.query.name ? req.query.name : ''}%`}
+            where: {
+              name: { [Op.like]: `%${req.query.name ? req.query.name : ""}%` },
+            },
           },
         },
         {
@@ -34,7 +36,9 @@ bands.get("/:name", async (req, res) => {
           include: {
             model: Event,
             as: "events",
-            where: { name: { [Op.like]: `%${req.query.name ? req.query.name : ''}%`}
+            where: {
+              name: { [Op.like]: `%${req.query.name ? req.query.name : ""}%` },
+            },
           },
         },
       ],

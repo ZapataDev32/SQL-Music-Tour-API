@@ -34,10 +34,6 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      band_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-      },
       event_id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -46,12 +42,16 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      meet_start_time: {
+      start_time: {
         type: DataTypes.DATE,
         allowNull: false,
       },
-      meet_end_time: {
+      end_time: {
         type: DataTypes.DATE,
+        allowNull: false,
+      },
+      band_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
       },
     },

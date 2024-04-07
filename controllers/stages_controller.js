@@ -1,7 +1,7 @@
 // DEPENDENCIES
 const stages = require("express").Router();
 const db = require("../models");
-const { Stage } = db;
+const { Stage, Event } = db;
 
 // FIND ALL stages
 stages.get("/", async (req, res) => {
@@ -13,11 +13,15 @@ stages.get("/", async (req, res) => {
   }
 });
 
-// FIND A SPECIFIC BAND
-stages.get("/:id", async (req, res) => {
+// FIND A SPECIFIC STAGE
+stages.get("/:name", async (req, res) => {
   try {
     const foundStage = await Stage.findOne({
-      where: { stage_id: req.params.id },
+      where: { stage_name: req.params.name },
+      include: {
+        model: Event,
+        as: "events",
+      },
     });
     res.status(200).json(foundStage);
   } catch (error) {
